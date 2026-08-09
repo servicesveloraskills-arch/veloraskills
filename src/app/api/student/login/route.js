@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { STUDENT_COOKIE, getStudentCredentials } from "@/lib/studentAuth";
-import { query } from "@/lib/mysql";
+import { query } from "@/lib/db";
 import { verifyPassword } from "@/lib/password";
 
 export async function POST(request) {

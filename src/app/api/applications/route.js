@@ -1,4 +1,4 @@
-import { query } from "@/lib/mysql";
+import { query } from "@/lib/db";
 
 export async function POST(request) {
   try {
@@ -31,11 +31,12 @@ export async function POST(request) {
       },
     );
 
-    const internId = `VS-${new Date().getFullYear()}-${String(result.insertId).padStart(5, "0")}`;
+    const insertedId = result.insertId || result[0]?.id;
+    const internId = `VS-${new Date().getFullYear()}-${String(insertedId).padStart(5, "0")}`;
 
     await query(
       "UPDATE internship_applications SET intern_id = :internId WHERE id = :id",
-      { internId, id: result.insertId },
+      { internId, id: insertedId },
     );
 
     return Response.json({

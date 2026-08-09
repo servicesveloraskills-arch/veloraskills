@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { ADMIN_COOKIE, getAdminCredentials } from "@/lib/adminAuth";
-import { query } from "@/lib/mysql";
+import { query } from "@/lib/db";
 import { verifyPassword } from "@/lib/password";
 
 export async function POST(request) {
