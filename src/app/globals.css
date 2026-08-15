@@ -4146,12 +4146,13 @@ td {
     width: 100%;
     min-width: 0;
     margin: 6px 0 8px;
-    border: 1px solid rgba(10, 42, 107, 0.1);
-    border-radius: 18px;
+    border: 1px solid rgba(10, 42, 107, 0.12);
+    border-radius: 14px;
     padding: 8px;
     background: rgba(10, 42, 107, 0.04);
     box-shadow: none;
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: none;
   }
@@ -4159,11 +4160,23 @@ td {
   .nav-dropdown:hover .nav-dropdown__menu,
   .nav-dropdown:focus-within .nav-dropdown__menu {
     transform: none;
+    opacity: 1;
+    visibility: visible;
   }
 
   .nav-dropdown__menu a {
     min-height: 42px;
-    padding: 0 12px;
+    padding: 8px 12px;
+    color: #111827;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+  }
+
+  .nav-dropdown__menu a:hover {
+    background: rgba(10, 42, 107, 0.08);
+    color: #0a2a6b;
   }
 }
 
