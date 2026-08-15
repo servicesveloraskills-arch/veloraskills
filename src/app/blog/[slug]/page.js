@@ -273,75 +273,26 @@ export default async function BlogPostPage({ params }) {
               </div>
 
               {/* Styled Related Cards */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))", gap: "24px" }}>
+              <div className="blog-grid blog-grid--2col">
                 {relatedPosts.map((related) => (
-                  <article
-                    key={related.slug}
-                    style={{
-                      background: "#ffffff",
-                      borderRadius: "18px",
-                      padding: "26px",
-                      border: "1px solid #e2e8f0",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      boxShadow: "0 14px 36px rgba(10, 42, 107, 0.06)",
-                    }}
-                  >
-                    <div>
-                      {/* Top Header: Category + Date & Reading Time */}
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px", flexWrap: "wrap", gap: "8px" }}>
-                        <span
-                          style={{
-                            fontSize: "11px",
-                            fontWeight: "bold",
-                            color: "#2563eb",
-                            background: "#eff6ff",
-                            padding: "4px 12px",
-                            borderRadius: "999px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          {related.category}
-                        </span>
-                        <span style={{ fontSize: "12px", color: "#64748b", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
-                          <FiCalendar style={{ color: "#2563eb" }} /> {related.date} • 5 min read
-                        </span>
-                      </div>
-
-                      {/* Heading / Title */}
-                      <h4 style={{ fontSize: "17px", fontWeight: "bold", color: "#0f172a", margin: "0 0 10px 0", lineHeight: "1.38" }}>
-                        {related.title}
-                      </h4>
-
-                      <p style={{ fontSize: "13.5px", color: "#64748b", margin: 0, lineHeight: "1.5", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
-                        {related.copy}
-                      </p>
+                  <article className="blog-card" key={related.slug}>
+                    <div className={`blog-card__image blog-card__image--${related.theme}`}>
+                      <span>{related.category}</span>
                     </div>
-
-                    {/* Bottom Footer: Left = Author Name, Right = Read Button */}
-                    <div style={{ paddingTop: "20px", marginTop: "16px", borderTop: "1px solid #f1f5f9", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
-                      <span style={{ fontSize: "13px", color: "#334155", fontWeight: "600", display: "flex", alignItems: "center", gap: "6px" }}>
+                    <div className="blog-card__body">
+                      <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "10px", fontSize: "12.5px", color: "#64748b", fontWeight: "600" }}>
+                        <FiCalendar style={{ color: "#2563eb" }} /> {related.date} • 5 min read
+                      </div>
+                      <h2>{related.title}</h2>
+                      <p>{related.copy}</p>
+                    </div>
+                    <div className="blog-card__meta">
+                      <span style={{ fontWeight: "600", color: "#475569", display: "inline-flex", alignItems: "center", gap: "6px" }}>
                         <FiUser style={{ color: "#2563eb" }} /> {related.author}
                       </span>
-                      <Link
-                        href={`/blog/${related.slug}`}
-                        style={{
-                          background: "#0a2a6b",
-                          color: "#ffffff",
-                          fontWeight: "bold",
-                          fontSize: "13px",
-                          padding: "8px 18px",
-                          borderRadius: "999px",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: "6px",
-                          textDecoration: "none",
-                          boxShadow: "0 4px 12px rgba(10, 42, 107, 0.15)",
-                        }}
-                      >
-                        Read Article <FiArrowRight />
+                      <Link href={`/blog/${related.slug}`}>
+                        <span>Read Article</span>
+                        <FiArrowRight aria-hidden="true" />
                       </Link>
                     </div>
                   </article>
