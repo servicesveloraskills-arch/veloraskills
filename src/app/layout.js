@@ -1,4 +1,5 @@
 import "./globals.css";
+import { CookieBanner } from "@/components/common/CookieBanner";
 
 export const metadata = {
   title: "VeloraSkills | Global Virtual Internship Programs",
@@ -14,7 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <CookieBanner />
+      </body>
     </html>
   );
 }
+

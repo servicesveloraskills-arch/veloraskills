@@ -23,7 +23,6 @@ import {
   journeySteps,
   programs,
   resources,
-  services,
   stats,
   testimonials,
 } from "@/data/site";
@@ -47,32 +46,6 @@ export default function Home() {
                 <span>{item.label}</span>
               </article>
             ))}
-          </div>
-        </section>
-
-        <section className="section section--tech" id="services">
-          <div className="container">
-            <div className="section-heading">
-              <p className="eyebrow">Services</p>
-              <h2>Built like a technical product, not a static brochure.</h2>
-              <p>
-                VeloraSkills connects learning, operations, verification, and career
-                preparation through clear dashboards and backend-ready workflows.
-              </p>
-            </div>
-            <div className="service-grid">
-              {services.map((service) => (
-                <article className="service-card" key={service.title}>
-                  <h3>{service.title}</h3>
-                  <p>{service.copy}</p>
-                  <div className="chip-list chip-list--light">
-                    {service.points.map((point) => (
-                      <span key={point}>{point}</span>
-                    ))}
-                  </div>
-                </article>
-              ))}
-            </div>
           </div>
         </section>
 

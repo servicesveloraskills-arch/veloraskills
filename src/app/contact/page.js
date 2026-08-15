@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Header } from "@/components/common/Header";
 import { Footer } from "@/components/common/Footer";
-import { contactChannels, programs } from "@/data/site";
+import { ContactForm } from "@/components/forms/ContactForm";
+import { contactChannels } from "@/data/site";
 
 export const metadata = {
   title: "Contact Us | VeloraSkills",
@@ -27,7 +28,7 @@ export default function ContactPage() {
         <section className="section">
           <div className="container contact-page-grid">
             <div className="contact-channel-list">
-              {contactChannels.map((channel) => (
+              {contactChannels.map((channel) =>
                 channel.href.startsWith("/") ? (
                   <Link className="service-card contact-channel" href={channel.href} key={channel.title}>
                     <span>{channel.title}</span>
@@ -39,35 +40,10 @@ export default function ContactPage() {
                     <strong>{channel.value}</strong>
                   </a>
                 )
-              ))}
+              )}
             </div>
 
-            <form className="panel form-panel contact-form" action="mailto:hello@veloraskills.tech" method="POST">
-              <label htmlFor="contact-name">Full name</label>
-              <input id="contact-name" name="name" placeholder="Your name" required />
-
-              <label htmlFor="contact-email">Email</label>
-              <input id="contact-email" name="email" type="email" placeholder="you@example.com" required />
-
-              <label htmlFor="contact-topic">Topic</label>
-              <select id="contact-topic" name="topic" required>
-                <option value="">Select a topic</option>
-                <option>Internship application</option>
-                <option>Certificate verification</option>
-                <option>Admin support</option>
-                <option>Partnership</option>
-                {programs.map((program) => (
-                  <option key={program.title}>{program.title}</option>
-                ))}
-              </select>
-
-              <label htmlFor="contact-message">Message</label>
-              <textarea id="contact-message" name="message" placeholder="How can we help?" required />
-
-              <button className="button button--primary" type="submit">
-                Send Message
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </section>
       </main>

@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";
+import { NewsletterForm } from "@/components/common/NewsletterForm";
 
 export function Footer() {
   const socialLinks = [
@@ -42,28 +43,17 @@ export function Footer() {
           <Link href="/#verify">Certificate Verification</Link>
         </div>
         <div>
-          <h2>Support</h2>
+          <h2>Support & Legal</h2>
           <Link href="/contact">Contact Us</Link>
-          <Link href="/#resources">Learning Material</Link>
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/terms">Terms & Conditions</Link>
           <Link href="/#faq">FAQ</Link>
           <a href="mailto:hello@veloraskills.tech">hello@veloraskills.tech</a>
         </div>
         <div className="footer-newsletter">
           <h2>Subscribe</h2>
           <p>Get internship updates, resources, and certificate alerts.</p>
-          <form className="footer-subscribe" action="/contact">
-            <label htmlFor="footer-email">Email address</label>
-            <div>
-              <input
-                id="footer-email"
-                name="email"
-                type="email"
-                placeholder="you@example.com"
-                required
-              />
-              <button type="submit">Join</button>
-            </div>
-          </form>
+          <NewsletterForm />
           <div className="footer-social" aria-label="Social media links">
             {socialLinks.map(({ href, label, Icon }) => (
               <a

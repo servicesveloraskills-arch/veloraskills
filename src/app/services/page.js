@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Header } from "@/components/common/Header";
 import { Footer } from "@/components/common/Footer";
-import { programs, services } from "@/data/site";
+import { programs } from "@/data/site";
 
 export const metadata = {
   title: "Services | VeloraSkills",
@@ -21,22 +21,6 @@ export default function ServicesPage() {
               From application to certificate, VeloraSkills gives each workflow a
               clean digital path backed by dashboards, data, and verification.
             </p>
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="container service-grid">
-            {services.map((service) => (
-              <article className="service-card service-card--lift" key={service.title}>
-                <h2>{service.title}</h2>
-                <p>{service.copy}</p>
-                <div className="chip-list chip-list--light">
-                  {service.points.map((point) => (
-                    <span key={point}>{point}</span>
-                  ))}
-                </div>
-              </article>
-            ))}
           </div>
         </section>
 
