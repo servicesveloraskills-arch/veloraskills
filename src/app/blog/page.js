@@ -68,8 +68,8 @@ export default function BlogPage() {
                 <div className="blog-card__meta">
                   <span>{post.date}</span>
                   <span>{post.author}</span>
-                  <Link href="/#resources">
-                    <span>Read</span>
+                  <Link href={`/blog/${post.slug}`}>
+                    <span>Read Article</span>
                     <FiArrowRight aria-hidden="true" />
                   </Link>
                 </div>
